@@ -45,8 +45,10 @@ button:focus-visible, input:focus-visible { outline: 3px solid color-mix(in srgb
 
 .topbar { max-width: 1180px; margin: auto; min-height: 86px; padding: 18px 24px; display: flex; align-items: center; justify-content: space-between; position: relative; z-index: 2; }
 .brand { color: var(--ink); text-decoration: none; display: flex; align-items: center; gap: 12px; }
-.brand .logo { width: 44px; height: 44px; display: grid; place-items: center; border-radius: 14px; color: #fff; background: #123d32; box-shadow: inset 0 0 0 1px rgba(255,255,255,.12); }
-.brand svg { width: 32px; height: 32px; fill: none; stroke: currentColor; stroke-width: 1.8; }
+.brand-logos { height: 48px; display: flex; align-items: center; gap: 7px; padding-right: 12px; border-right: 1px solid var(--line); }
+.brand-logos img { display: block; object-fit: contain; }
+.petnica-logo { width: 43px; height: 44px; }
+.rac-logo { width: 43px; height: 43px; border-radius: 50%; }
 .brand strong { display: block; font: 800 17px/1.1 'Manrope', sans-serif; letter-spacing: -.3px; }
 .brand small { display: block; color: var(--muted); font-size: 11px; margin-top: 4px; text-transform: uppercase; letter-spacing: .11em; }
 .header-actions { display: flex; align-items: center; gap: 10px; }
@@ -172,7 +174,8 @@ footer span { font: 700 13px 'Manrope'; } footer small { color: rgba(255,255,255
 
 @media (max-width: 720px) {
   .topbar { min-height: 76px; padding: 15px 18px; }
-  .brand .logo { width: 40px; height: 40px; border-radius: 13px; }
+  .brand-logos { height: 42px; gap: 5px; padding-right: 9px; }
+  .petnica-logo, .rac-logo { width: 37px; height: 37px; }
   .brand small { display: none; }
   .connection { padding: 7px 9px; font-size: 0; gap: 0; }
   main { padding: 38px 16px 65px; }

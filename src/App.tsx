@@ -1,9 +1,11 @@
 import { FormEvent, useEffect, useMemo, useRef, useState } from 'react';
 import { api, ApiError } from './api';
-import { ClockIcon, LogoMark, MoonIcon, PingPongIcon, PoolIcon, SunIcon, UsersIcon } from './icons';
+import { ClockIcon, MoonIcon, PingPongIcon, PoolIcon, SunIcon, UsersIcon } from './icons';
 import type { Control, PublicEntry, PublicState, ResourceId, ResourceState } from './types';
 
 const CONTROL_KEY = 'igraonica-control';
+const petnicaLogo = new URL('../logo.png', import.meta.url).href;
+const racLogo = new URL('../raclogo.png', import.meta.url).href;
 
 function loadControl(): Control | null {
   try { return JSON.parse(localStorage.getItem(CONTROL_KEY) || 'null'); } catch { return null; }
@@ -91,9 +93,12 @@ export default function App() {
 
   return <div className="app-shell">
     <header className="topbar">
-      <a className="brand" href="#top" aria-label="Na potezu, početna">
-        <span className="lpetnicatenisogo"><LogoMark /></span>
-        <span><strong>Na potezu</strong><small>Petnica igraonica</small></span>
+      <a className="brand" href="#top" aria-label="POSRAO, početna">
+        <span className="brand-logos" aria-hidden="true">
+          <img className="petnica-logo" src={petnicaLogo} alt="" />
+          <img className="rac-logo" src={racLogo} alt="" />
+        </span>
+        <span><strong>POSRAO</strong><small>Petnički Online Sistem za Rezervaciju Animacionog Okruženja</small></span>
       </a>
       <div className="header-actions">
         <span className={`connection ${connected ? 'online' : ''}`}><i />{connected ? 'Uživo' : 'Povezivanje'}</span>
@@ -138,7 +143,7 @@ export default function App() {
       </section>
     </main>
 
-    <footer><span>Na potezu</span><small>Prvi dođe, prvi igra.</small></footer>
+    <footer><span>POSRAO</span><small>Petnički Online Sistem za Rezervaciju Animacionog Okruženja</small></footer>
 
     {sheet?.kind === 'book' && <BookingSheet resource={sheet.resource} onClose={() => setSheet(null)} onSuccess={(result) => {
       const next = { entryId: result.entryId!, token: result.token! };

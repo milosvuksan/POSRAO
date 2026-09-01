@@ -1,6 +1,6 @@
 module.exports = {
   apps: [{
-    name: 'petnica-igraonica',
+    name: 'posrao',
     script: 'dist-server/index.js',
     cwd: __dirname,
     env: {
