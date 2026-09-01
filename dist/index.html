@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="sr-Latn">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#123d32" />
+    <meta name="description" content="Raspored za bilijar i stoni tenis" />
+    <title>Na potezu — Igraonica</title>
+    <script>
+      (() => {
+        const saved = localStorage.getItem('igraonica-theme');
+        const dark = saved ? saved === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches;
+        document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+      })();
+    </script>
+    <script type="module" crossorigin src="/assets/index-ByGRsfdU.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-ebY6bDdy.css">
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
