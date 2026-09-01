@@ -1,0 +1,12 @@
+# Dependencies
+node_modules/
+# Build output
+dist/
+dist-server/
+*.tsbuildinfo
+# Runtime data (SQLite may also create -wal and -shm files)
+data/
+# Local environment/configuration
+.env
+.env.*
+!.env.example

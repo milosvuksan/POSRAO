@@ -21,6 +21,11 @@ npm run typecheck
 npm run build
 npm start
 ```
+`dist/`, `dist-server/`, `node_modules/` and `data/` are local/generated runtime
+directories and are intentionally not tracked by Git. After checking out or
+updating the source, run `npm ci && npm run build` before restarting the service.
+The SQLite database remains in `data/` and is not replaced by source updates.
+
 
 Podrazumevana baza je `./data/igraonica.db`. Putanja i port mogu da se promene promenljivama `DATABASE_PATH` i `PORT`. Za PM2 je priložen `ecosystem.config.cjs`:
 
