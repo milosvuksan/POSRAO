@@ -205,7 +205,7 @@ function GameCard({ resource, control, now, delay, busy, onOpen, onExtend, onFin
 function Queue({ resource, now, myId }: { resource: ResourceState; now: number; myId?: string }) {
   return <div className="queue-block">
     <div className="queue-title"><span><UsersIcon /> Red čekanja</span><b>{resource.queue.length}</b></div>
-    {resource.queue.length === 0 ? <p className="empty-queue">Niko ne čeka — produženje je moguće.</p> : <ol>
+    {resource.queue.length === 0 ? <p className="empty-queue">Niko ne čeka, produženje je moguće.</p> : <ol>
       {resource.queue.map(entry => <li key={entry.entryId} className={entry.entryId === myId ? 'mine' : ''}>
         <span className="position">{entry.position}</span>
         <span className="avatar">{entry.displayName.charAt(0).toUpperCase()}</span>
@@ -232,7 +232,7 @@ function BookingSheet({ resource, onClose, onSuccess }: { resource: ResourceStat
     <p className="sheet-intro">{queued ? 'Tvoja sesija počinje automatski kada dođeš na red.' : 'Sto je slobodan. Odbrojavanje počinje odmah.'}</p>
     <form onSubmit={submit}>
       <label>Ime i prezime<input autoFocus autoComplete="name" value={name} onChange={event => setName(event.target.value)} minLength={2} maxLength={30} placeholder="npr. Mila Petrović" required /></label>
-      <label>Četvorocifreni PIN<input inputMode="numeric" autoComplete="off" value={pin} onChange={event => setPin(event.target.value.replace(/\D/g, '').slice(0, 4))} pattern="\d{4}" placeholder="••••" required /><small>Zapamti PIN — njime upravljaš svojom prijavom.</small></label>
+      <label>Četvorocifreni PIN<input inputMode="numeric" autoComplete="off" value={pin} onChange={event => setPin(event.target.value.replace(/\D/g, '').slice(0, 4))} pattern="\d{4}" placeholder="••••" required /><small>Zapamti PIN! njime upravljaš svojom prijavom.</small></label>
       <fieldset><legend>Koliko želiš da igraš?</legend><div className="duration-display"><strong>{duration}</strong><span>minuta</span></div>
         <input className="duration-range" type="range" min="5" max="60" step="5" value={duration} onChange={event => setDuration(Number(event.target.value))} aria-label="Trajanje u minutima" />
         <div className="range-labels"><span>5 min</span><span>30 min</span><span>60 min</span></div>
