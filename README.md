@@ -1,5 +1,7 @@
 # POSRAO
 
+Dostupno na sajtu: `https://isp.losmi.rs/`
+
 Petnički Online Sistem za Rezervaciju Animacionog Okruženja. Mobilna aplikacija za red i korišćenje bilijarskog i stonoteniskog stola. Interfejs je na srpskoj latinici, a server koristi autoritativno vreme, SQLite transakcije i SSE ažuriranja uživo.
 
 ## Lokalni razvoj
