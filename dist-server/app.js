@@ -3,7 +3,10 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { AppError } from './scheduler.js';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-export function createApp(scheduler, production = process.env.NODE_ENV === 'production') {
+// The standalone server (`npm start`) is the production entry point and must
+// serve the built client. During local development Vite owns the client
+// server; tests and other API-only callers can still pass `false` explicitly.
+export function createApp(scheduler, production = process.env.NODE_ENV !== 'development') {
     const app = express();
     const clients = new Set();
     app.disable('x-powered-by');

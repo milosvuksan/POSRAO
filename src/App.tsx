@@ -5,7 +5,6 @@ import type { Control, PublicEntry, PublicState, ResourceId, ResourceState } fro
 
 const CONTROL_KEY = 'igraonica-control';
 const petnicaLogo = new URL('../logo.png', import.meta.url).href;
-const racLogo = new URL('../raclogo.png', import.meta.url).href;
 
 function loadControl(): Control | null {
   try { return JSON.parse(localStorage.getItem(CONTROL_KEY) || 'null'); } catch { return null; }
@@ -96,12 +95,10 @@ export default function App() {
       <a className="brand" href="#top" aria-label="POSRAO, početna">
         <span className="brand-logos" aria-hidden="true">
           <img className="petnica-logo" src={petnicaLogo} alt="" />
-          <img className="rac-logo" src={racLogo} alt="" />
         </span>
         <span><strong>POSRAO</strong><small>Petnički Online Sistem za Rezervaciju Animacionog Okruženja</small></span>
       </a>
       <div className="header-actions">
-        <span className={`connection ${connected ? 'online' : ''}`}><i />{connected ? 'Uživo' : 'Povezivanje'}</span>
         <button className="icon-button" onClick={toggleTheme} aria-label={theme === 'dark' ? 'Uključi svetlu temu' : 'Uključi tamnu temu'}>
           {theme === 'dark' ? <SunIcon /> : <MoonIcon />}
         </button>
@@ -110,9 +107,8 @@ export default function App() {
 
     <main id="top">
       <section className="hero">
-        <p className="eyebrow"><span /> Bez rezervacije unapred</p>
-        <h1>Izaberi igru.<br/><em>Počni kada si na redu.</em></h1>
-        <p className="intro">Proveri dostupnost, zauzmi slobodan sto ili stani u red. Jednostavno i fer.</p>
+        <h1>Izaberi sto.<br/><em>Znaj stanje u realnom vremenu</em></h1>
+        <p className="intro">Petnički Online Sistem za Rezervaciju Animacionog Okruženja</p>
       </section>
 
       {!state ? <LoadingCards /> : <section className="game-grid" aria-label="Dostupni stolovi">
@@ -143,7 +139,7 @@ export default function App() {
       </section>
     </main>
 
-    <footer><span>POSRAO</span><small>Petnički Online Sistem za Rezervaciju Animacionog Okruženja</small></footer>
+    <footer><span>POSRAO </span><small> Petnički Online Sistem za Rezervaciju Animacionog Okruženja</small></footer>
 
     {sheet?.kind === 'book' && <BookingSheet resource={sheet.resource} onClose={() => setSheet(null)} onSuccess={(result) => {
       const next = { entryId: result.entryId!, token: result.token! };
